@@ -1,4 +1,4 @@
-from Models.calcular import Calcular
+from GamePy.Models.calcular import Calcular
 
 calc: Calcular = Calcular(1)
 

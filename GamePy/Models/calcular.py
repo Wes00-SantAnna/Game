@@ -5,7 +5,7 @@ class Calcular:
         self.__dificuldade = dificuldade
         self.__valor1 = self._gerar_valor()
         self.__valor2 = self._gerar_valor_nao_zero()
-        self.__operacao = randint(1, 5)
+        self.__operacao = randint(1, 4)  # Limita de 1 a 4
         self.__resultado = self._gerar_resultado()
 
     def _gerar_valor(self) -> int:
@@ -18,7 +18,13 @@ class Calcular:
         elif self.__dificuldade == 4:
             return randint(1000, 10000)
         else:
-            print('Operação inválida')
+            return 1  # valor padrão de segurança
+
+    def _gerar_valor_nao_zero(self) -> int:
+        valor = 0
+        while valor == 0:
+            valor = self._gerar_valor()
+        return valor
 
     def _gerar_resultado(self) -> int:
         if self.__operacao == 1:
